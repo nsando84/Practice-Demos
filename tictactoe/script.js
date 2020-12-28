@@ -52,7 +52,8 @@ gameStartDiv.css({
 gameStartInfo.appendTo(gameStartDiv)
 gameStartInfo.css({
     'height': '50px',
-    'fontSize': '16px'  
+    'fontSize': '24px',
+    'color': 'light' 
 });
 
 gameStartButton.appendTo(gameStartDiv);
@@ -105,13 +106,15 @@ const playerO = {
 const startGame = () => {
 
     let playersTurn;
-    
+
     const firstTurnRandom = Math.floor(Math.random() * Math.floor(2));
     if (firstTurnRandom === 0) {
         playersTurn = 'X';
     } else {
-        playersTurn = 'O';
+        playersTurn = 'O'; 
     };
+
+
 
     const playerInstruction = playersTurn => {
         gameStartInfo.text(`${playersTurn}'s turn.`);
@@ -127,11 +130,6 @@ const startGame = () => {
             });
         };
 
-        
-        gameStartInfo.css({
-            'fontSize': '24px',
-            'color': 'light'
-        });
 
         gameStartInfo.text(`${player}'s won!!`);
 
@@ -179,7 +177,18 @@ const startGame = () => {
             };      
         };
     
-        return resultCheck;
+        if (!resultCheck && playerO.pickArray.length === 5 || playerX.pickArray.length === 5) {
+
+            gameStartInfo.text('');
+            gameStartInfo.text('Game is tie!');
+            gameResetButton.appendTo(gameStartDiv);
+            return true;
+
+        } else {
+           
+            return resultCheck;
+        };
+
     };
 
     $('.gameBox').click(e => {
@@ -221,8 +230,9 @@ gameStartButton.click(() => {
         return gameStartMessage.text('Game already started');
     };
 
-    startGame();
     isGameCurrent = true;
+    startGame();
+    
 });
 
 
