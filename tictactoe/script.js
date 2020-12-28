@@ -7,7 +7,7 @@ const gameStartDiv = $('<div>');
 const gameStartMessage = $('<div>')
 const gameStartInfo = $('<div>');
 const gameStartButton = $('<button>');
-const gameResetButton = $('<button>')
+const gameResetButton = $('<button>');
 
 rootDiv.css({
     'textAlign': 'center',
@@ -135,7 +135,7 @@ const startGame = () => {
 
         gameStartInfo.text(`${player}'s won!!`);
 
-        gameResetButton.appendTo(gameStartDiv)
+        gameResetButton.appendTo(gameStartDiv);
 
     };
 
@@ -144,13 +144,13 @@ const startGame = () => {
 
         const workCombinations = (playerArray) => {
             const result = [];
-            const combos = (prefix, playerArray) => {
+            const combos = (startPoint, playerArray) => {
               for (let i = 0; i < playerArray.length; i++) {
-                  const resultRound = prefix + playerArray[i]
+                  const resultRound = startPoint + playerArray[i];
                   if (resultRound.length === 3) {
-                      result.push((prefix + playerArray[i]).split('').sort().join(''));
+                      result.push((startPoint + playerArray[i]).split('').sort().join(''));
                   };
-                  combos(prefix + playerArray[i], playerArray.slice(i + 1));
+                  combos(startPoint + playerArray[i], playerArray.slice(i + 1));
               };
             };
 
