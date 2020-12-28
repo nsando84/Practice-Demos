@@ -72,7 +72,7 @@ gameResetButton.css({
 }).text('Reset Game');
 
 gameResetButton.click(() => {
-    location.reload()
+    location.reload();
 });
 
 gameStartMessage.appendTo(gameStartDiv)
@@ -171,7 +171,7 @@ const startGame = () => {
             playerX.pickArray.push(idOfBox);
             if (playerX.pickArray.length > 2) {
                 workCombinations(playerX.pickArray);
-            }
+            };
         } else {
             playerO.pickArray.push(idOfBox);
             if (playerO.pickArray.length > 2) {
