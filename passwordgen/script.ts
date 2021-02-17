@@ -10,7 +10,7 @@ class InputEle {
         this.name = name;
     }
 
-    generateElement():HTMLInputElement {
+    private generateElement():HTMLInputElement {
         return document.getElementById(this.name) as HTMLInputElement;
     }
 
@@ -34,14 +34,15 @@ const upperCaseCheck = new InputEle("uppercase")
 const lowerCaseCheck = new InputEle("lowercase")
 const numberCheck = new InputEle("number")
 
-generateButton.addEventListener("click", () => {
+generateButton.addEventListener("click", ():void => {
 
     const symbolCheckFinal:boolean = symbolCheck.checkIfChecked();
     const upperCaseCheckFinal:boolean = upperCaseCheck.checkIfChecked();
     const lowerCaseCheckFinal:boolean = lowerCaseCheck.checkIfChecked();
     const numberCheckFinal:boolean = numberCheck.checkIfChecked();
+    
 
-    let numberLengthCheck:any = numbersLength.value;
+    let numberLengthCheck:string | number = numbersLength.value;
     numberLengthCheck = Number(numberLengthCheck);
     
 
