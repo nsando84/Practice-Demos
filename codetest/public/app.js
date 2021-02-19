@@ -6,7 +6,7 @@ let questionNumber = 0;
 let question;
 const runGame = () => {
     if (questionNumber < questions.length) {
-        question = new Question(questions[questionNumber], TimeScoreKeeper);
+        question = new Question(questions[questionNumber], TimeScoreKeeper, runGame);
         question.createQuestion();
         questionNumber++;
     }

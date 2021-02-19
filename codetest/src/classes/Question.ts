@@ -9,10 +9,12 @@ interface QuestionFormat {
 export class Question {
     private question: QuestionFormat
     private TimeAndScore: TimeAndScore
+    private runGame: Function
   
-    constructor(question, TimeAndScore) {
+    constructor(question, TimeAndScore, runGame) {
       this.question = question;
       this.TimeAndScore = TimeAndScore;
+      this.runGame = runGame;
     }
   
     private randomizer = (randomizer: []):string[] => {
@@ -26,7 +28,10 @@ export class Question {
     }
   
     private checkIt(answer):void {
-      answer === this.question.answer ? this.TimeAndScore.addToScore(true) : this.TimeAndScore.addToScore(false)
+      answer === this.question.answer ? this.TimeAndScore.addToScore(true) : this.TimeAndScore.addToScore(false);
+      document.getElementById("question-section")!.innerHTML = ''
+      document.getElementById("answer-section")!.innerHTML = ''
+      this.runGame();
     }
 
     private onClick = (e: Event):void => {

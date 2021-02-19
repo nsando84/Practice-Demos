@@ -1,5 +1,5 @@
 export class Question {
-    constructor(question, TimeAndScore) {
+    constructor(question, TimeAndScore, runGame) {
         this.randomizer = (randomizer) => {
             const newArr = [];
             for (let i = 0; i < 4; i++) {
@@ -15,9 +15,13 @@ export class Question {
         };
         this.question = question;
         this.TimeAndScore = TimeAndScore;
+        this.runGame = runGame;
     }
     checkIt(answer) {
         answer === this.question.answer ? this.TimeAndScore.addToScore(true) : this.TimeAndScore.addToScore(false);
+        document.getElementById("question-section").innerHTML = '';
+        document.getElementById("answer-section").innerHTML = '';
+        this.runGame();
     }
     createQuestion() {
         const { q, choices } = this.question;
