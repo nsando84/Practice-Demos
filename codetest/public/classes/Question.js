@@ -1,5 +1,5 @@
 export class Question {
-    constructor(question) {
+    constructor(question, TimeAndScore) {
         this.randomizer = (randomizer) => {
             const newArr = [];
             for (let i = 0; i < 4; i++) {
@@ -9,22 +9,25 @@ export class Question {
             }
             return newArr;
         };
+        this.onClick = (e) => {
+            const target = e.target;
+            this.checkIt(target.dataset.value);
+        };
         this.question = question;
+        this.TimeAndScore = TimeAndScore;
     }
     checkIt(answer) {
-        console.log(answer === this.question.answer);
-    }
-    onClick(e) {
-        console.log(e.target);
+        answer === this.question.answer ? this.TimeAndScore.addToScore(true) : this.TimeAndScore.addToScore(false);
     }
     createQuestion() {
-        const question = this.question.q;
-        const randomQuestion = this.randomizer(this.question.choices);
+        const { q, choices } = this.question;
+        const randomQuestion = this.randomizer(choices);
         const questionSec = document.getElementById("question-section");
         const answerSec = document.getElementById("answer-section");
-        questionSec.textContent = question;
+        questionSec.textContent = q;
         answerSec.append(...randomQuestion.map(q => {
             const button = document.createElement("button");
+            button.setAttribute("data-value", q);
             button.textContent = q;
             button.addEventListener("click", this.onClick);
             return button;

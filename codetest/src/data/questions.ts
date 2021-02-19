@@ -1,5 +1,3 @@
-
-
 export let questions = [
     {
         q: "Commonly used data types do not include:", 
