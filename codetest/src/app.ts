@@ -3,7 +3,10 @@ import { TimeAndScore } from './classes/TimeAndScore.js'
 import { questions } from './data/questions.js';
 
 
-const TimeScoreKeeper = new TimeAndScore(0, 30);
+const TimeScoreKeeper = new TimeAndScore(30);
+TimeScoreKeeper.startGame();
+
+
 let questionNumber = 0;
 let question: Question;
 
