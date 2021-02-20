@@ -1,0 +1,41 @@
+header {
+    text-align: center;
+    margin-top: 20px;
+    color: orange;
+    font-size: 20px;
+}
+
+body div {
+    text-align: center;
+    margin-top: 50px;
+}
+
+body div section:nth-child(2) {
+    margin-top: 25px;
+}
+
+body div section:nth-child(2) button {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+table {
+    margin: auto;
+    border: 1px solid black;
+}
+
+table,
+td {
+    padding: 20px;
+}
+
+#input-name {
+    border: 1px solid black;
+    margin: auto;
+}
+
+#input-button {
+    border: 1px solid black;
+    padding: 2px;
+    margin-left: 1px;
+}

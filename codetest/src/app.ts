@@ -14,9 +14,10 @@ const runGame = () => {
   if (questionNumber < questions.length) {
     question = new Question(questions[questionNumber], TimeScoreKeeper, runGame);
     question.createQuestion();
-    questionNumber++;  
+    questionNumber++;
+  } else {
+    TimeScoreKeeper.stopGame()
   }
-  
 }
 
 runGame();

@@ -11,5 +11,8 @@ const runGame = () => {
         question.createQuestion();
         questionNumber++;
     }
+    else {
+        TimeScoreKeeper.stopGame();
+    }
 };
 runGame();
