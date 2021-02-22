@@ -1,6 +1,6 @@
 
-
-
+/////////////////////
+//
 interface setData {
     setItem(key: string, value: string): void;
 }
